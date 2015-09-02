@@ -1,7 +1,7 @@
 /*
 *
 *	code by harryt2996
-*   date: 3/9/2015
+*   	date: 3/9/2015
 *	There's no copyright so you can take this code and claim it as your own if you want, I dont mind
 *
 */
@@ -219,7 +219,7 @@ function enter(){
 
 function initialize(){
 	console.log("initialized");
-	mainlog.innerHTML = "*note: to change rotor settings, type '[x y z]' where x,y and z are the desired rotor settings of rotor 1, 2 and 3. Rotor settings run between 0 and 25<br>";
+	mainlog.innerHTML = "*note: to change rotor settings, type '[x y z]' where x,y and z are the desired rotor settings of rotor 1, 2 and 3. Rotor settings run between 0 and 25. For current settings, type '[current]'<br>";
 	mainlog.innerHTML += "<br> current rotor settings: ";
 	print_settings();
 	mainlog.innerHTML += "<br>";
