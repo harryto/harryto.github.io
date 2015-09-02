@@ -2,7 +2,7 @@
 *
 *	code by harryt2996
 *   	date: 3/9/2015
-*	There's no copyright so you can take this code and claim it as your own if you want, I dont mind
+*	There's no copyright so you can copy any part this code and claim it as your own if you want, I dont mind
 *
 */
 var machine = {};
@@ -32,6 +32,8 @@ machine.reflector =
 [17,5],[18,2],[19,6],[20,26],[21,3],
 [22,23],[23,22],[24,10],[25,1],[26,20]];
 /*
+* pairing's not done though
+*
 *machine.pair_settings = 
 *[0,[1],[2],[3],[4],[5],[6],
 *[7],[8],[9],[10],[11],
