@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+	<title>===Enigma===</title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<style type="text/css">
+		body {
+			background-color: #eeeeee;
+		}
+		p{
+			font-family: courier;
+		}
+		#main {
+			width: 600px;
+			float: left;
+			padding: 10px;
+		}
+		#name {
+			text-align: center;
+		}
+		#input{
+			border: none;
+			bottom: 10px;
+			width: 600px;
+			font-family: courier;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<p id="name"><br><br>===ENIGMA===<br><br><br></p>
+		<p id="description">An Enigma machine was a series of electro-mechanical rotor cipher machines developed and used in the early to early-mid twentieth century for commercial and military usage. Enigma was invented by the German engineer Arthur Scherbius at the end of World War I. This website is an Enigma machine simulator. You can encrypt and decrypt original German messages as well as  messages of your own.<br>
+			*note:  this site is still under construction</p>
+		<p id="mainlog">this should not be read</p>
+		<script type="text/javascript" src="machine.js"></script>
+		<input type="text" id="input" value="" onkeydown="if(event.keyCode == 13){enter()}"/>
+	</div>
+</body>
+</html>
