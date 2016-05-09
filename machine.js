@@ -2,7 +2,6 @@
 *
 *	code by harryt2996
 *   	date: 3/9/2015
-*	There's no copyright so you can copy any part this code and claim it as your own if you want, I dont mind
 *
 */
 var machine = {};
