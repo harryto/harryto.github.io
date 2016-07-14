@@ -107,9 +107,9 @@ function returnrun(inp, num){
 	}
 }
 
-function chek_in_alpha(char){
+function check_in_alpha(char){
 	for(var i=0; i< 27; i++){
-		if(char == alpha[i]){ 	return true;   }
+		if(char === alpha[i]){ 	return true;   }
 	}	
 	return false 
 }
@@ -120,6 +120,7 @@ function encrypt(){
 	var numstr = new Array(); 
 	for(var i =0; i<input.length; i++){
 		if(check_in_alpha(input[i])){
+			console.log("char");
 			var inp_char = input[i];
 			inp_num = number(inp_char);
 			if(inp_num === 0){ 
@@ -170,6 +171,7 @@ function encrypt(){
 			output_str += alpha[numstr[i]];
 		} else {
 			output_str += input[i];
+			console.log("not char");
 		}
 	};
 }
