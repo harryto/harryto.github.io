@@ -107,60 +107,70 @@ function returnrun(inp, num){
 	}
 }
 
+function chek_in_alpha(char){
+	for(var i=0; i< 27; i++){
+		if(char == alpha[i]){ 	return true;   }
+	}	
+	return false 
+}
+
 function encrypt(){
 	var input = input_str;
 	output_str = new String();
 	var numstr = new Array(); 
 	for(var i =0; i<input.length; i++){
+		if(check_in_alpha(input[i])){
+			var inp_char = input[i];
+			inp_num = number(inp_char);
+			if(inp_num === 0){ 
+				numstr[i] = 0;
+			}else{
+				//run through pairing settings//
+				//inp_num = machine.pair_settings[inp_num][1];
+				//run through transfer1//
+				inp_num = trans(inp_num,1);
+				inp_num = machine.rotor1[inp_num][1];
+				inp_num = detrans(inp_num,1);
+				//run through transfer2//
+				inp_num = trans(inp_num,2);
+				inp_num = machine.rotor2[inp_num][1];
+				inp_num = detrans(inp_num,2);
+				//run through transfer3//
+				inp_num = trans(inp_num,3);
+				inp_num = machine.rotor3[inp_num][1];
+				inp_num = detrans(inp_num,3);
+				//reflector//
+				inp_num = machine.reflector[inp_num][1];
+				//return through transfer3//
+				inp_num = trans(inp_num, 3);
+				inp_num = returnrun(inp_num, 3);
+				inp_num = detrans(inp_num, 3);
+				//return through transfer2//
+				inp_num = trans(inp_num, 2);
+				inp_num = returnrun(inp_num, 2);
+				inp_num = detrans(inp_num, 2);
+				//return through transfer1//
+				inp_num = trans(inp_num, 1);
+				inp_num = returnrun(inp_num, 1);
+				inp_num = detrans(inp_num, 1);
+				//return through pairing settings// 
 
-		var inp_char = input[i];
-		inp_num = number(inp_char);
-		if(inp_num === 0){ 
-			numstr[i] = 0;
-		}else{
-			//run through pairing settings//
-			//inp_num = machine.pair_settings[inp_num][1];
-			//run through transfer1//
-			inp_num = trans(inp_num,1);
-			inp_num = machine.rotor1[inp_num][1];
-			inp_num = detrans(inp_num,1);
-			//run through transfer2//
-			inp_num = trans(inp_num,2);
-			inp_num = machine.rotor2[inp_num][1];
-			inp_num = detrans(inp_num,2);
-			//run through transfer3//
-			inp_num = trans(inp_num,3);
-			inp_num = machine.rotor3[inp_num][1];
-			inp_num = detrans(inp_num,3);
-			//reflector//
-			inp_num = machine.reflector[inp_num][1];
-			//return through transfer3//
-			inp_num = trans(inp_num, 3);
-			inp_num = returnrun(inp_num, 3);
-			inp_num = detrans(inp_num, 3);
-			//return through transfer2//
-			inp_num = trans(inp_num, 2);
-			inp_num = returnrun(inp_num, 2);
-			inp_num = detrans(inp_num, 2);
-			//return through transfer1//
-			inp_num = trans(inp_num, 1);
-			inp_num = returnrun(inp_num, 1);
-			inp_num = detrans(inp_num, 1);
-			//return through pairing settings// 
+				numstr[i] = inp_num;	 
 
-			numstr[i] = inp_num;	 
-
-			machine.rotor1_set++;
-			if(machine.rotor1_set > 25){
-				machine.rotor1_set = 0;
-				machine.rotor2_set++;
+				machine.rotor1_set++;
+				if(machine.rotor1_set > 25){
+					machine.rotor1_set = 0;
+					machine.rotor2_set++;
+				};
+				if (machine.rotor2_set > 25){
+					machine.rotor2_set = 0;
+					machine.rotor3_set++;
+				};
 			};
-			if (machine.rotor2_set > 25){
-				machine.rotor2_set = 0;
-				machine.rotor3_set++;
-			};
-		};
-		output_str += alpha[numstr[i]];
+			output_str += alpha[numstr[i]];
+		} else {
+			output_str += input[i];
+		}
 	};
 }
 
