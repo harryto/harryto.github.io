@@ -32,11 +32,11 @@ machine.reflector =
 [22,23],[23,22],[24,10],[25,1],[26,20]];
 
 machine.pair_settings = 
-[[0,0],[1,5],[2,15],[3,6],[4,16],[5,20],[6,24],
-[7,7],[8,8],[9,3],[10,13],[11,4],
-[12,12],[13,19],[14,14],[15,2],[16,23],
-[17,17],[18,18],[19,1],[20,26],[21,9],
-[22,22],[23,21],[24,11],[25,25],[26,10]];
+[[0,0],[1,20],[2,15],[3,25],[4,11],[5,9],[6,18],
+[7,22],[8,10],[9,5],[10,8],[11,4],
+[12,23],[13,19],[14,26],[15,2],[16,16],
+[17,17],[18,6],[19,13],[20,1],[21,21],
+[22,7],[23,12],[24,24],[25,3],[26,14]];
 
 machine.rotor1_set = Math.floor(Math.random() * (25 + 1));
 machine.rotor2_set = Math.floor(Math.random() * (25 + 1));
@@ -125,7 +125,7 @@ function encrypt(){
 				numstr[i] = 0;
 			}else{
 				//run through pairing settings//
-				//inp_num = machine.pair_settings[inp_num][1];
+				inp_num = machine.pair_settings[inp_num][1];
 				//run through transfer1//
 				inp_num = trans(inp_num,1);
 				inp_num = machine.rotor1[inp_num][1];
@@ -153,7 +153,7 @@ function encrypt(){
 				inp_num = returnrun(inp_num, 1);
 				inp_num = detrans(inp_num, 1);
 				//return through pairing settings// 
-
+				inp_num = machine.pair_settings[inp_num][1];
 				numstr[i] = inp_num;	 
 
 				machine.rotor1_set++;
